@@ -1,28 +1,29 @@
 package team.gif.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
 
-public class collector extends SubsystemBase {
+public class Collector extends SubsystemBase {
 
-    public static collector instance = null;
+    private static Collector instance = null;
 
-    public static collector getInstance(){
+    public static Collector getInstance(){
         if(instance == null) {
-            instance = new collector();
+            instance = new Collector();
         }
         return instance;
     }
     /**
      * Creates a new ExampleSubsystem.
      */
-    private static WPI_TalonSRX intakeMotor;
+    private static final VictorSPX intakeMotor= new VictorSPX(RobotMap.INTAKE);
 
-    public collector() {
-        intakeMotor = new WPI_TalonSRX(RobotMap.INTAKE);
-
+    public Collector() {
+        super();
     }
     public void setSpeed(double motorPercent) {
         intakeMotor.set(ControlMode.PercentOutput,motorPercent);

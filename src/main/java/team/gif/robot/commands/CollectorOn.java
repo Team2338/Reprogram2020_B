@@ -1,6 +1,6 @@
 package team.gif.robot.commands;
 
-import team.gif.robot.subsystems.collector;
+import team.gif.robot.subsystems.Collector;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /**
@@ -8,14 +8,13 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
  */
 public class CollectorOn extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    private final collector collector;
+    private final Collector collector = Collector.getInstance();
 
     /**
      * Creates a new ExampleCommand.
      *
      */
     public CollectorOn() {
-        collector = new collector();
     }
 
     // Called when the command is initially scheduled.
@@ -26,7 +25,8 @@ public class CollectorOn extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        collector.setSpeed(0.5);
+        System.out.println( "Running Collector");
+        collector.getInstance().setSpeed(0.5);
     }
 
     // Returns true when the command should end.
@@ -38,6 +38,7 @@ public class CollectorOn extends CommandBase {
     // Called once the command ends or is interrupted.
     @Override
     public void end(boolean interrupted) {
+        System.out.println( "************************** DONE ************");
         collector.setSpeed(0);
     }
 }

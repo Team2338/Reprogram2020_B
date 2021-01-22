@@ -152,8 +152,8 @@ public class Robot extends TimedRobot {
 
     autoTab = Shuffleboard.getTab("PreMatch");
 
-    autoModeChooser.addOption("Mobility", autoMode.MOBILITY);
-    autoModeChooser.setDefaultOption("6 Ball Auto", autoMode.MOBILITY);
+    autoModeChooser.setDefaultOption("Mobility", autoMode.MOBILITY);
+    autoModeChooser.addOption("Forward", autoMode.AUTOFORWARD);
 
     autoTab.add("Auto Select",autoModeChooser)
             .withWidget(BuiltInWidgets.kComboBoxChooser)
@@ -166,6 +166,8 @@ public class Robot extends TimedRobot {
 
     if(chosenAuto == autoMode.MOBILITY){
         m_autonomousCommand = new Mobility();
+    } else if(chosenAuto == autoMode.AUTOFORWARD){
+      m_autonomousCommand = new AutoForward();
     } else if(chosenAuto ==null) {
         System.out.println("Autonomous selection is null. Robot will do nothing in auto :(");
     }

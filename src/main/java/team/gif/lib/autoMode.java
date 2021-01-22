@@ -2,7 +2,9 @@ package team.gif.lib;
 
 public enum autoMode {
 
-    MOBILITY(0);
+    MOBILITY(0),
+
+    AUTOFORWARD(0);
 
     private int value;
     autoMode(int value) {

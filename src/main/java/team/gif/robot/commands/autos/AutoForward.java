@@ -13,15 +13,15 @@ import team.gif.lib.RobotTrajectory;
 import team.gif.robot.subsystems.Drivetrain;
 import java.util.List;
 
-public class Mobility extends SequentialCommandGroup {
+public class AutoForward extends SequentialCommandGroup {
 
-    public Command reverse () {
+    public Command forward () {
         Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
-            List.of(
-                new Pose2d(Units.feetToMeters(0.0), 0, new Rotation2d(0)),
-                new Pose2d(Units.feetToMeters(-4.0), 0, new Rotation2d(0))
-            ),
-            RobotTrajectory.getInstance().configReverse
+                List.of(
+                        new Pose2d(Units.feetToMeters(0.0), 0, new Rotation2d(0)),
+                        new Pose2d(Units.feetToMeters(3.0), 0, new Rotation2d(0))
+                ),
+                RobotTrajectory.getInstance().configForward
         );
         // create the command using the trajectory
         RamseteCommand rc = RobotTrajectory.getInstance().createRamseteCommand(trajectory);
@@ -29,13 +29,13 @@ public class Mobility extends SequentialCommandGroup {
         return rc.andThen(() -> Drivetrain.getInstance().tankDriveVolts(0, 0));
     }
 
-    public Mobility() {
-        System.out.println("Auto: Mobility Selected");
+    public AutoForward() {
+        System.out.println("Auto: AutoForward Selected");
 
         addCommands(
-            new PrintCommand("Auto: Mobility Started"),
-            reverse(),
-            new PrintCommand("Auto: Mobility Ended")
+                new PrintCommand("Auto: AutoForward Started"),
+                forward(),
+                new PrintCommand("Auto: AutoForward Ended")
         );
     }
 }

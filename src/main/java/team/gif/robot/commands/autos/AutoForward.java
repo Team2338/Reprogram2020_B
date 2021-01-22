@@ -19,7 +19,7 @@ public class AutoForward extends SequentialCommandGroup {
         Trajectory trajectory = TrajectoryGenerator.generateTrajectory(
                 List.of(
                         new Pose2d(Units.feetToMeters(0.0), 0, new Rotation2d(0)),
-                        new Pose2d(Units.feetToMeters(3.0), 0, new Rotation2d(0))
+                        new Pose2d(Units.feetToMeters(10.0), Units.feetToMeters(0), new Rotation2d(0))
                 ),
                 RobotTrajectory.getInstance().configForward
         );

@@ -74,7 +74,7 @@ public class OI {
 
         aDPadUp.whenPressed(new CollectorUp());
         aDPadDown.whenPressed(new CollectorDown());
-        aDPadRight.whenPressed((new CollectorMiddle()));
+        aDPadLeft.whenPressed((new CollectorMiddle()));
 
     }
 

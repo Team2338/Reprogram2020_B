@@ -24,7 +24,6 @@ public class Fire extends CommandBase {
 
     @Override
     public void initialize(){
-
     }
 
     @Override
@@ -40,7 +39,6 @@ public class Fire extends CommandBase {
         else {
             stageFiveMotorVictor.set(ControlMode.PercentOutput, 0);
         }
-
     }
 
     @Override

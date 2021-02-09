@@ -70,7 +70,7 @@ public class OI {
          *
          */
         aLB.whileHeld(new ShooterRun());
-        //aRT.whileHeld(new Fire(false));
+        aRT.whileHeld(new Fire(false));
 
     }
 

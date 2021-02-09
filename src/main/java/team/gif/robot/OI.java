@@ -4,6 +4,9 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import team.gif.lib.AxisButton;
+import team.gif.robot.commands.Shooter.ShooterRun;
+import team.gif.robot.commands.Shooter.Fire;
+
 
 
 public class OI {
@@ -66,6 +69,8 @@ public class OI {
          * dRT.whileHeld(new EjectCommand());
          *
          */
+        aLB.whileHeld(new ShooterRun());
+        aRT.whileHeld(new Fire(false));
 
     }
 

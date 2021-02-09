@@ -46,4 +46,16 @@ public final class Constants {
         public static final double kRamseteB = 2;
         public static final double kRamseteZeta = 0.7;
     }
+
+    public static class Shooter {
+        public static final double kF = 0.000175;
+        public static final double kP = 0.0007;
+
+        public static final double RPM_LOW = 4000;
+        public static final double RPM_HIGH = 4500;
+    }
+
+    public static class Pivot {
+        public static double marginxF = 1.8;
+    }
 }

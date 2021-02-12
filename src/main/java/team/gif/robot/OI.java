@@ -4,10 +4,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
 import team.gif.lib.AxisButton;
-import team.gif.robot.commands.CollectorDown;
-import team.gif.robot.commands.CollectorMiddle;
-import team.gif.robot.commands.CollectorOn;
-import team.gif.robot.commands.CollectorUp;
+import team.gif.robot.commands.*;
 
 
 public class OI {
@@ -75,6 +72,11 @@ public class OI {
         aDPadUp.whenPressed(new CollectorUp());
         aDPadDown.whenPressed(new CollectorDown());
         aDPadLeft.whenPressed((new CollectorMiddle()));
+
+        aA.whenPressed((new StageTwo()));
+        aB.whenPressed((new StageThree()));
+        aX.whenPressed((new StageFour()));
+        aY.whenPressed((new StageFive()));
 
     }
 

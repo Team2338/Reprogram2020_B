@@ -12,12 +12,12 @@ public class StageFour extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize(){
+        indexer.setSpeedFour(0.5);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        indexer.setSpeedFour(0.5);
     }
 
     // Returns true when the command should end.

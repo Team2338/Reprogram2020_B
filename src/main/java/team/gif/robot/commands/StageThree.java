@@ -12,12 +12,14 @@ public class StageThree extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize(){
+        indexer.setSpeedThree(0.5);
+        indexer.setSpeedTwo(0.5);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        indexer.setSpeedThree(0.5);
+
     }
 
     // Returns true when the command should end.
@@ -30,5 +32,6 @@ public class StageThree extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         indexer.setSpeedThree(0);
+        indexer.setSpeedTwo(0);
     }
 }

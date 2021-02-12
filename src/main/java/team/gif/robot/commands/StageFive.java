@@ -12,12 +12,13 @@ public class StageFive extends CommandBase {
     // Called when the command is initially scheduled.
     @Override
     public void initialize(){
+        indexer.setSpeedFive(0.5);
+        indexer.setSpeedFour(0.5);
     }
 
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        indexer.setSpeedFive(0.5);
     }
 
     // Returns true when the command should end.
@@ -30,5 +31,6 @@ public class StageFive extends CommandBase {
     @Override
     public void end(boolean interrupted) {
         indexer.setSpeedFive(0);
+        indexer.setSpeedFour(0);
     }
 }

@@ -1,5 +1,6 @@
 package team.gif.robot;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.POVButton;
@@ -72,6 +73,20 @@ public class OI {
         aLB.whileHeld(new ShooterRun());
         aRT.whileHeld(new Fire(false));
 
+    }
+
+    public void setRumble(boolean rumble) {
+        if(rumble) {
+            driver.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+            driver.setRumble(GenericHID.RumbleType.kRightRumble, 1);
+            aux.setRumble(GenericHID.RumbleType.kLeftRumble, 1);
+            aux.setRumble(GenericHID.RumbleType.kRightRumble, 1);
+        } else {
+            driver.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
+            driver.setRumble(GenericHID.RumbleType.kRightRumble, 0);
+            aux.setRumble(GenericHID.RumbleType.kLeftRumble, 0);
+            aux.setRumble(GenericHID.RumbleType.kRightRumble, 0);
+        }
     }
 
 }

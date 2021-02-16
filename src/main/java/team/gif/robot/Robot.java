@@ -2,6 +2,7 @@
 package team.gif.robot;
 
 import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -130,7 +131,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-
+      double matchTime = DriverStation.getInstance().getMatchTime();
+      oi.setRumble(matchTime > 18.0 && matchTime < 20.0);
   }
 
   @Override

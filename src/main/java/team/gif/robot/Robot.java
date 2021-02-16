@@ -131,7 +131,8 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopPeriodic() {
-
+      double matchTime = DriverStation.getInstance().getMatchTime();
+      oi.setRumble(matchTime > 18.0 && matchTime < 20.0);
   }
 
   @Override
@@ -140,9 +141,6 @@ public class Robot extends TimedRobot {
 
   @Override
   public void testPeriodic() {
-    double matchTime = DriverStation.getInstance().getMatchTime();
-    oi.setRumble(matchTime > 18.0 && matchTime < 22.0);
-
   }
 
   @Override

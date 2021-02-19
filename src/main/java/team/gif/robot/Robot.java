@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.autoMode;
@@ -75,6 +76,9 @@ public class Robot extends TimedRobot {
     chosenAuto = autoModeChooser.getSelected();
 
     CommandScheduler.getInstance().run();
+
+    // Display the shooter RPM on the shuffleboard
+    SmartDashboard.putString("RPM", Shooter.getInstance().getVelocityAsString());
 
   }
 

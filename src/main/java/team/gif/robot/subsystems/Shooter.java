@@ -45,4 +45,7 @@ public class Shooter extends SubsystemBase {
 
     // Get the speed of the motor
     public double getVelocity(){return flyWheelEncoder.getVelocity();}
+
+    public String getVelocityAsString(){return String.format("%12.0f", getVelocity());}
 }
+

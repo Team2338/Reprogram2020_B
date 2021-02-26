@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.lib.autoMode;
 import team.gif.robot.commands.autos.*;
 import team.gif.robot.commands.drivetrain.Drive;
+import team.gif.robot.commands.drivetrain.ResetHeading;
 import team.gif.robot.subsystems.Drivetrain;
 import team.gif.robot.subsystems.drivers.Limelight;
 import team.gif.robot.subsystems.Shooter;
@@ -60,6 +61,8 @@ public class Robot extends TimedRobot {
 
     driveCommand = new Drive(Drivetrain.getInstance());
     drivetrain = Drivetrain.getInstance();
+
+    SmartDashboard.putData("ResetHead", new ResetHeading());
 
   }
 

@@ -5,6 +5,7 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import team.gif.robot.RobotMap;
@@ -27,6 +28,12 @@ public class Indexer extends SubsystemBase {
     private static final VictorSPX stageFourMotor = new VictorSPX(RobotMap.STAGE_FOUR);
     private static final VictorSPX stageFiveMotor = new VictorSPX(RobotMap.STAGE_FIVE);
 
+    private static final DigitalInput stageOneSensor = new DigitalInput(RobotMap.SENSOR_ONE);
+    private static final DigitalInput stageTwoSensor = new DigitalInput(RobotMap.SENSOR_TWO);
+    private static final DigitalInput stageThreeSensor = new DigitalInput(RobotMap.SENSOR_THREE);
+    private static final DigitalInput stageFourSensor = new DigitalInput(RobotMap.SENSOR_FOUR);
+    private static final DigitalInput stageFiveSensor = new DigitalInput(RobotMap.SENSOR_FIVE);
+
 
     public Indexer() {
         super();
@@ -36,6 +43,11 @@ public class Indexer extends SubsystemBase {
         stageFourMotor.setNeutralMode(NeutralMode.Brake);
         stageFiveMotor.setNeutralMode(NeutralMode.Brake);
 
+    }
+
+    public boolean[] getState(){
+        boolean [] sensorStates = {false, stageOneSensor.get(), stageTwoSensor.get(), stageThreeSensor.get(), stageFourSensor.get(), stageFiveSensor.get()};
+        return sensorStates;
     }
 
     public void setSpeedTwo (double speed) {

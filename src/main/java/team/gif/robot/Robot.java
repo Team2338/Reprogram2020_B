@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj.Compressor;
 import team.gif.lib.autoMode;
 import team.gif.robot.commands.autos.*;
 import team.gif.robot.commands.drivetrain.Drive;
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot {
 
 
   public static Limelight limelight;
+  private final Compressor compressor = new Compressor();
 
   public static ShuffleboardTab autoTab = Shuffleboard.getTab("PreMatch");
   private NetworkTableEntry allianceEntry = autoTab.add("Alliance","Startup")
@@ -106,7 +108,7 @@ public class Robot extends TimedRobot {
 
     updateauto();
       System.out.println("Auto: auto selection updated");
-
+      compressor.stop();
     m_autonomousCommand.schedule();
 
     System.out.println("autonomous init end");
@@ -133,6 +135,7 @@ public class Robot extends TimedRobot {
       m_autonomousCommand.cancel();
     }
     oi = new OI();
+    compressor.start();
     driveCommand.schedule();
   }
 

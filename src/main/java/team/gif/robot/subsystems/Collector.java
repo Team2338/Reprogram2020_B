@@ -1,6 +1,7 @@
 package team.gif.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
@@ -30,6 +31,7 @@ public class Collector extends SubsystemBase {
     public Collector() {
         super();
         intakeMotor.setInverted(true);
+        intakeMotor.setNeutralMode(NeutralMode.Brake);
     }
     public void setSpeed(double motorPercent) {
         intakeMotor.set(ControlMode.PercentOutput,motorPercent);

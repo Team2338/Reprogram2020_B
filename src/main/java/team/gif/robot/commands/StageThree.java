@@ -25,11 +25,7 @@ public class StageThree extends CommandBase {
     // Returns true when the command should end.
     @Override
     public boolean isFinished(){
-        if ((indexer.getState()[3] == true)) {
-            return true;
-        } else {
-            return false;
-        }
+        return indexer.getState()[3];
     }
 
     // Called once the command ends or is interrupted.
